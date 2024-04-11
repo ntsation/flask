@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Produtos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        form {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Produtos</h1>
+    <table>  
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Valor</th>
+                <th>Disponível para compra</th> <!-- Adicionando a nova coluna -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for produto in produtos %}
+                <tr>
+                    <td>{{ produto.nome }}</td>
+                    <td>R$ {{ produto.valor }}</td>
+                    <td>{{ produto.disponivel }}</td> <!-- Exibindo o valor da disponibilidade -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Adicionar Produto</h2>
+    <form action="/" method="post">
+        <label for="nome">Nome do Produto:</label><br>
+        <input type="text" id="nome" name="nome"><br>
+        <label for="descricao">Descrição do Produto:</label><br>
+        <input type="text" id="descricao" name="descricao"><br>
+        <label for="valor">Valor do Produto:</label><br>
+        <input type="text" id="valor" name="valor"><br>
+        <label for="disponivel">Disponível para venda:</label><br>
+        <select id="disponivel" name="disponivel">
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+        </select><br>
+        <input type="submit" value="Adicionar Produto">
+    </form>
+</body>
+</html>
