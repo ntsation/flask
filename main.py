@@ -6,6 +6,8 @@ app = Flask(__name__)
 produtos = []
 
 # Rota para a página inicial
+
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':  # Verifica se a requisição é do tipo POST
@@ -30,7 +32,8 @@ def index():
                 # Adiciona o produto à lista de produtos
                 produtos.append(produto)
 
-                # Redireciona de volta para a página inicial após a submissão do formulário
+                # Redireciona de volta para a página inicial após a submissão
+                # do formulário
                 return redirect(url_for('index'))
             except ValueError:
                 return "Erro: O valor do produto deve ser numérico."
@@ -39,10 +42,12 @@ def index():
             return "Erro: Todos os campos devem ser preenchidos."
 
     # Ordena os produtos pelo valor antes de exibi-los
-    produtos_ordenados = sorted(produtos, key=lambda x: float(x['valor']), reverse=True)
+    produtos_ordenados = sorted(
+        produtos, key=lambda x: float(x['valor']), reverse=True)
 
     # Renderiza o template 'index.html' passando a lista de produtos ordenados
     return render_template('index.html', produtos=produtos_ordenados)
+
 
 if __name__ == '__main__':
     app.run(debug=True)  # Executa a aplicação Flask em modo de depuração
