@@ -1,9 +1,11 @@
 # Lista de Produtos
-- Este é um aplicativo simples que permite listar produtos e adicionar novos produtos através de um formulário. 
+
+- Este é um aplicativo simples que permite listar produtos e adicionar novos produtos através de um formulário.
 
 - Foi desenvolvido utilizando Flask para o backend e HTML/CSS para o frontend.
 
 ## Funcionalidades
+
 1. Exibir uma lista de produtos com seus nomes, valores e disponibilidade para compra.
 
 2. Adicionar novos produtos através de um formulário.
@@ -22,10 +24,11 @@
 
 3. Execute o seguinte comando no terminal para iniciar o servidor Flask:
 
-    ```
+    ```python
     python main.py
     ```
-4. Abra um navegador web e acesse http://localhost:5000 para visualizar a aplicação.
+
+4. Abra um navegador web e acesse <http://localhost:5000> para visualizar a aplicação.
 
 ## Estrutura do Projeto
 
